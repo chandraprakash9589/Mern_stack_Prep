@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 50px;
+        border: 1px solid black;
+       
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="grandparent">
+      <div id="parent">
+        <div id="child"></div>
+      </div>
+    </div>
+    <script src="eventBubblingCapturing.js"></script>
+  </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Capturing Example</title>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner">
+        <button id="btn">Click me</button>
+      </div>
+    </div> -->
+
+    <!-- Event bubbling and event capturing are two phases of event propagation in the Document Object Model (DOM) of HTML. These concepts describe how events are handled as they propagate through nested elements in the DOM hierarchy. -->
+ 
+    <!-- Event Bubbling: -->
+    <!-- Event bubbling is the default behavior in which an event triggered on the innermost (deepest) element is first captured by that element's handler, then propagated upwards through its ancestors.
+    This means that after the innermost element's handler executes, the event continues to propagate to its parent elements, triggering their respective handlers if they exist.
+    Bubbling occurs from the target element up to the root of the document (or until a handler stops propagation using event.stopPropagation()). -->
+    <!-- <script>
+      document.getElementById("outer").addEventListener("click", function () {
+        console.log("Outer div clicked");
+      });
+
+      document.getElementById("inner").addEventListener("click", function () {
+        console.log("Inner div clicked");
+      });
+
+      document
+        .getElementById("btn")
+        .addEventListener("click", function (event) {
+          console.log("Button clicked");
+          event.stopPropagation(); // Stop event from further propagation
+        });
+    </script> -->
+
+    <!-- event capturing -->
+    <!-- Event capturing is the opposite of event bubbling. It involves capturing the event at the outermost (root) element first and then propagating downwards to the target element.
+Unlike event bubbling, event capturing is not the default behavior, but it can be explicitly enabled by setting the third parameter of addEventListener to true.
+Event capturing occurs from the root of the document down to the target element -->
+    <!-- <script>
+    document.getElementById('outer').addEventListener('click', function() {
+      console.log('Outer div clicked (capturing phase)');
+    }, true); // Enable event capturing
+
+    document.getElementById('inner').addEventListener('click', function() {
+      console.log('Inner div clicked (capturing phase)');
+    }, true); // Enable event capturing
+
+    document.getElementById('btn').addEventListener('click', function(event) {
+      console.log('Button clicked (capturing phase)');
+      event.stopPropagation(); // Stop event from further propagation
+    }, true); // Enable event capturing
+  </script> -->
+
+    <!-- Why Use Event Bubbling and Event Capturing?
+
+Event bubbling and capturing provide a mechanism for handling events on nested elements in a structured way.
+They allow for the delegation of event handling to parent elements, which can simplify event management and reduce the number of event listeners attached to individual elements.
+They provide flexibility in designing event-driven interactions in web applications, enabling developers to control the flow of events through the DOM hierarchy. -->
+  </body>
+</html>
